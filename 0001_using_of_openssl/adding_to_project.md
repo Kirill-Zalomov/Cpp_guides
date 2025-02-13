@@ -6,13 +6,13 @@
 
 Для установки пакета OpenSSL сначала нужно проверить его доступность:
 
-```sh
+```console
 apt policy openssl
 ```
 
 Примерный вывод команды, сигнализирующий о доступности пакета:
 
-```sh
+```console
 kirillzalomov@debian:~$ apt policy openssl
 openssl:
   Установлен: (отсутствует)
@@ -28,7 +28,7 @@ openssl:
 
 Если пакет будет не доступен, то вывод команды будет примерно таким:
 
-```sh
+```console
 kirillzalomov@debian:~$ apt policy openssl
 virtualbox:
   Установлен: (отсутствует)
@@ -38,7 +38,7 @@ virtualbox:
 
 Или таким:
 
-```sh
+```console
 kirillzalomov@debian:~$ apt policy openssl
 N: Невозможно найти пакет openssl
 ```
@@ -47,7 +47,7 @@ N: Невозможно найти пакет openssl
 
 Для установки можно воспользоваться командой:
 
-```sh
+```console
 sudo apt install openssl -y
 ```
 
@@ -59,7 +59,7 @@ sudo apt install openssl -y
 
 Про каждый из компонентов в отдельности можно почитать с помощью __man__:
 
-```sh
+```console
 man ssl
 man crypto
 ```
