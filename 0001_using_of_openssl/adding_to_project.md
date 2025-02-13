@@ -40,7 +40,7 @@ virtualbox:
 
 ```sh
 kirillzalomov@debian:~$ apt policy openssl
-N: Невозможно найти пакет vmware
+N: Невозможно найти пакет openssl
 ```
 
 ### 2) Установка пакета OpenSSL через apt  
@@ -66,14 +66,14 @@ man crypto
 
 Также документация доступна по ссылке: [https://docs.openssl.org/master/man7/](https://docs.openssl.org/master/man7/)
 
-### 4) Добавление OpenSSL в проекта на C++ с системой сборки CMake  
+### 4) Добавление OpenSSL в проект на C++ с системой сборки CMake  
 
 Для добавления OpenSSL в проект с CMake в файле CMakeLists.txt нужно указать:  
 
 ```cmake
 find_package(OpenSSL REQUIRED)
-add_executable(target <project_sources>)
-target_link_libraries(target PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+add_executable(test <project_sources>)
+target_link_libraries(test PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 ```
 
 ### 5) Пример проекта для тестирования работы  
@@ -117,7 +117,7 @@ int main() {
     SHA256(reinterpret_cast<const unsigned char*>(input.c_str()), input.size(), hash);
 
     // Выводим исходный текст
-    std::cout << std::setw(16) << "Text: " << input << std::endl;
+    std::cout << std::setw(16) << "Text: " << "\"" << input << "\"" << std::endl;
 
     // Выводим хеш SHA256 для текста "Hello, World"
     std::cout << std::setw(16) << "SHA256 of text: ";
