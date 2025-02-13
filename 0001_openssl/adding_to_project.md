@@ -2,6 +2,20 @@
 
 ---
 
+<br>  
+
+## Оглавление
+
+1. [Проверка доступности пакета OpenSSL в apt](#сhapter_1)
+2. [Установка пакета OpenSSL через apt](#сhapter_2)
+3. [Документация по OpenSSL](#сhapter_3)
+4. [Добавление OpenSSL в проект на C++ с системой сборки CMake](#сhapter_4)
+5. [Пример проекта для тестирования работы OpenSSL](#сhapter_5)
+<br>  
+
+---
+
+<a name="сhapter_1"></a> 
 ### 1) Проверка доступности пакета OpenSSL в apt
 
 Для установки пакета OpenSSL сначала нужно проверить его доступность:
@@ -43,6 +57,12 @@ kirillzalomov@debian:~$ apt policy openssl
 N: Невозможно найти пакет openssl
 ```
 
+<br>  
+<br>  
+
+---
+
+<a name="сhapter_2"></a>
 ### 2) Установка пакета OpenSSL через apt  
 
 Для установки можно воспользоваться командой:
@@ -51,6 +71,12 @@ N: Невозможно найти пакет openssl
 sudo apt install openssl -y
 ```
 
+<br>  
+<br>  
+
+---
+
+<a name="сhapter_3"></a>
 ### 3) Документация по OpenSSL  
 
 Библиотека OpenSSL состоит из двух компонентов:  
@@ -66,6 +92,12 @@ man crypto
 
 Также документация доступна по ссылке: [https://docs.openssl.org/master/man7/](https://docs.openssl.org/master/man7/)
 
+<br>  
+<br>  
+
+---
+
+<a name="сhapter_4"></a>
 ### 4) Добавление OpenSSL в проект на C++ с системой сборки CMake  
 
 Для добавления OpenSSL в проект с CMake в файле CMakeLists.txt нужно указать:  
@@ -76,7 +108,13 @@ add_executable(test <project_sources>)
 target_link_libraries(test PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 ```
 
-### 5) Пример проекта для тестирования работы  
+<br>  
+<br>  
+
+---
+
+<a name="сhapter_5"></a>
+### 5) Пример проекта для тестирования работы OpenSSL  
 
 Создадим проект, который будет выводить хеш-сумму по алгоритму SHA256 для текста "Hello, World".  
 
@@ -140,4 +178,8 @@ cmake --build test_openssl_build
 
 ![Сборка проект и запуск исполняемого файла __test__](images/1.png)
 Рисунок 1 - Сборка проект и запуск исполняемого файла __test__  
+
 <br>  
+<br>  
+
+---
