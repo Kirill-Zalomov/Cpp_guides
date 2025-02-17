@@ -1,4 +1,4 @@
-## Добавление библиотеки OpenSSL 3.0 в зависимости проекта на C++ с CMake  
+## Добавление библиотеки OpenSSL в зависимости проекта на C++ с CMake  
 
 ---
 
@@ -25,14 +25,14 @@ _Примечание:_ все практические примеры, прив
 Для установки пакета OpenSSL сначала нужно проверить его доступность:
 
 ```console
-apt policy openssl
+apt policy libssl-dev
 ```
 
 Примерный вывод команды, сигнализирующий о доступности пакета:
 
 ```console
-kirillzalomov@debian:~$ apt policy openssl
-openssl:
+kirillzalomov@debian:~$ apt policy libssl-dev
+libssl-dev:
   Установлен: (отсутствует)
   Кандидат:   3.0.15-1~deb12u1
   Таблица версий:
@@ -47,8 +47,8 @@ openssl:
 Если пакет будет не доступен, то вывод команды будет примерно таким:
 
 ```console
-kirillzalomov@debian:~$ apt policy openssl
-virtualbox:
+kirillzalomov@debian:~$ apt policy libssl-dev
+libssl-dev:
   Установлен: (отсутствует)
   Кандидат:   (отсутствует)
   Таблица версий:
@@ -57,8 +57,8 @@ virtualbox:
 Или таким:
 
 ```console
-kirillzalomov@debian:~$ apt policy openssl
-N: Невозможно найти пакет openssl
+kirillzalomov@debian:~$ apt policy libssl-dev
+N: Невозможно найти пакет libssl-dev
 ```
 
 <br>  
@@ -72,7 +72,7 @@ N: Невозможно найти пакет openssl
 Для установки можно воспользоваться командой:
 
 ```console
-sudo apt install openssl -y
+sudo apt install libssl-dev -y
 ```
 
 <br>  
@@ -108,7 +108,9 @@ man crypto
 
 ```cmake
 find_package(OpenSSL REQUIRED)
-add_executable(test <project_sources>)
+
+add_executable(...)
+
 target_link_libraries(test PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 ```
 
@@ -182,8 +184,8 @@ cmake --build test_openssl_build
 ./test_openssl_build/test
 ```
 
-![Сборка проект и запуск исполняемого файла __test__](images/1.png)
-Рисунок 1 - Сборка проект и запуск исполняемого файла __test__  
+![Сборка проекта и запуск исполняемого файла __test__](images/1.png)
+Рисунок 1 - Сборка проекта и запуск исполняемого файла __test__  
 
 <br>  
 <br>  
