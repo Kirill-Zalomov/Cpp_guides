@@ -1,0 +1,9 @@
+# Doxyfile 1.8.20
+
+PROJECT_NAME           = SimpleProject
+PROJECT_BRIEF          = A simple project to demonstrate Doxygen
+OUTPUT_DIRECTORY       = docs
+INPUT                  = include/ src/
+RECURSIVE              = YES
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO 
