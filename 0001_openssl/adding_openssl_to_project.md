@@ -1,4 +1,4 @@
-## Добавление библиотеки OpenSSL в зависимости проекта на C++ с CMake  
+## Добавление библиотеки OpenSSL к проекту на C++ с CMake  
 
 ---
 
@@ -178,7 +178,7 @@ int main() {
 
 Выполним сборку проекта из папки __test__ и запустим программу (рисунок 1):
 
-```cmake
+```console
 cmake -B test_openssl_build -S test_openssl
 cmake --build test_openssl_build
 ./test_openssl_build/test
