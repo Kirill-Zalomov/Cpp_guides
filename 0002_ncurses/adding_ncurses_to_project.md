@@ -1,4 +1,4 @@
-## Добавление библиотеки NCurses в зависимости проекта на C++ с CMake  
+## Добавление библиотеки NCurses к проекту на C++ с CMake  
 
 ---
 
@@ -186,7 +186,7 @@ int main() {
 
 Выполним сборку проекта и запустим программу (рисунок 1):
 
-```cmake
+```console
 cmake -B test_ncurses_build -S test_ncurses
 cmake --build test_ncurses_build
 ./test_ncurses_build/test_ncurses
