@@ -83,7 +83,7 @@ cmake --build build
 ```
 
 ![Сборка проекта с GTest](images/1.png)
-Рисунок 1 --- Сборка проекта с GTest __test_ncurses__  
+Рисунок 1 --- Сборка проекта с GTest  
 
 Запустим тесты:  
 
