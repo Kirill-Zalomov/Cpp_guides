@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 
 project(HelloWorldProject)
 
-# Минимальная версия стандарта для gtkmm 4.0
+# Минимальная версия стандарта C++ для gtkmm 4.0
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
