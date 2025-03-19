@@ -61,7 +61,7 @@ sudo dpkg -i Crow-1.2.1-Linux.deb
 ### 3) Документация по Crow  
 
 Online-документация доступна по ссылкам:  
-* https://crowcpp.org/1.2.1/getting_started/setup/linux/
+* https://crowcpp.org/master/getting_started/setup/linux/  
 * https://crowcpp.org/master/guides/app/  
 
 <br>  
@@ -89,8 +89,7 @@ target_link_libraries(<app_name> Crow::Crow OpenSSL::SSL OpenSSL::Crypto ZLIB::Z
 <a name="сhapter_5"></a>
 ### 5) Пример проекта для тестирования работы Crow  
 
-_Примечание:_ исходный код примера можно взять здесь:  
-[projects/test_crow](projects/test_crow).  
+_Примечание:_ исходный код примера можно взять здесь: [projects/test_crow](projects/test_crow).  
 
 Выполним сборку проекта (рисунок 3). Сборка происходить внутри папки проекта.   
 
