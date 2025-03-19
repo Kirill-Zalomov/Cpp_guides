@@ -1,0 +1,3 @@
+/home/kirillzalomov/projects/cpp_guides/0010_spdlog/projects/test_spdlog/build/CMakeFiles/test_spdlog.dir
+/home/kirillzalomov/projects/cpp_guides/0010_spdlog/projects/test_spdlog/build/CMakeFiles/edit_cache.dir
+/home/kirillzalomov/projects/cpp_guides/0010_spdlog/projects/test_spdlog/build/CMakeFiles/rebuild_cache.dir
