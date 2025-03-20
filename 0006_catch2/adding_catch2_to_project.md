@@ -24,7 +24,7 @@ _Примечание:_ все практические примеры, прив
 
 Библиотеку можно скачать с официальной страницы на [github.com](https://github.com/catchorg/Catch2?ysclid=m8hh1u17y5597839704) (рисунок 1).  
 
-![Последняя Release-версия библиотеки на странице github](images/1.png)  
+<img src="images/1.png" alt="Последняя Release-версия библиотеки на странице github" style="border: 2px solid white; border-radius: 10px;"/>  
 Рисунок 1 --- Последняя Release-версия библиотеки на странице github  
 
 <br>  
@@ -37,7 +37,7 @@ _Примечание:_ все практические примеры, прив
 
 Рекомендуется на странице проекта на github выбрать последнюю Release-версию (рисунок 1) и скачать zip-архив с исходными кодами библиотеки (рисунок 2) для её установки в системе.  
 
-![Исходные коды библиотеки, доступные в виде zip-архива](images/2.png)  
+<img src="images/2.png" alt="Исходные коды библиотеки, доступные в виде zip-архива" style="border: 2px solid white; border-radius: 10px;"/>  
 Рисунок 2 --- Исходные коды библиотеки, доступные в виде zip-архива  
 
 После разархивации скачанного zip-архива в желаемую папку необходимо перейти в папку разархивированного проекта и выполнить следующие команды:  
@@ -116,8 +116,8 @@ cmake -B build -S .
 cmake --build build/ -j$(nproc)
 ```
 
-![Сборка проекта с catch2](images/3.png)  
-Рисунок 3 --- Сборка проекта с catch2  
+<img src="images/3.png" alt="Сборка проекта с catch2" style="border: 2px solid white; border-radius: 10px;"/>  
+Рисунок 3 --- Сборка проекта с catch2
 
 Запустим сначала саму прогамму __my_program__ и потом unit-тесты __tests__ (рисунок 4):  
 
@@ -126,7 +126,7 @@ cmake --build build/ -j$(nproc)
 ./build/tests
 ```
 
-![Запуск программы и unit-тестов](images/4.png)  
+<img src="images/4.png" alt="Запуск программы и unit-тестов" style="border: 2px solid white; border-radius: 10px;"/>  
 Рисунок 4 --- Запуск программы и unit-тестов  
 
 <br>  
