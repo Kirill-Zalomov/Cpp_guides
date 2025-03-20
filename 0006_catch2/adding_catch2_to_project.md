@@ -78,12 +78,15 @@ https://github.com/catchorg/Catch2/blob/devel/docs/cmake-integration.md#top
 
 ```cmake
 --------------------------------------------------------------------------------
-find_package(Catch2 REQUIRED)
-...
 # В таком случае Catch2 автоматически предоставит точку входа (main)
 # для тестов:
+find_package(Catch2 REQUIRED)
+...
 add_executable(tests test.cpp)
 target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
+...
+enable_testing()
+add_test(NAME tests COMMAND tests)
 --------------------------------------------------------------------------------
 
 ИЛИ
@@ -95,6 +98,9 @@ find_package(Catch2 REQUIRED)
 ...
 add_executable(custom-main-tests test.cpp test-main.cpp)
 target_link_libraries(custom-main-tests PRIVATE Catch2::Catch2)
+...
+enable_testing()
+add_test(NAME tests COMMAND tests)
 --------------------------------------------------------------------------------
 ```
 
