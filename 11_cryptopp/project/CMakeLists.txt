@@ -1,0 +1,37 @@
+cmake_minimum_required(VERSION 3.10)
+project(cryptopp_lib_test)
+
+set(CXX_STANDARD 17)
+set(CXX_STANDARD_REQUIRED ON)
+
+
+find_path(CRYPTOPP_INCLUDE_DIR
+	cryptopp
+    PATHS
+    	/usr/include
+)
+
+find_library(CRYPTOPP_LIBRARY
+    NAMES
+    	cryptopp
+    	crypto++
+    PATHS
+    	/usr/lib/x86_64-linux-gnu/
+)
+
+if (CRYPTOPP_INCLUDE_DIR AND CRYPTOPP_LIBRARY)
+    message(STATUS "Crypto++ found: ${CRYPTOPP_LIBRARY}")
+else()
+    message(FATAL_ERROR "Crypto++ not found!")
+endif()
+
+
+add_executable(prog main.cpp)
+target_include_directories(prog
+	PRIVATE
+		${CRYPTOPP_INCLUDE_DIR}
+)
+target_link_libraries(prog
+	PRIVATE
+		${CRYPTOPP_LIBRARY}
+)
