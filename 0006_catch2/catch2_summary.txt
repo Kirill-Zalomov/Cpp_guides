@@ -1,0 +1,80 @@
+// Интеграция с CMake
+find_package(Catch2 REQUIRED)
+...
+add_executable(tests ...)
+target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
+
+
+
+// Общие сведения:
+- Тесты данной библиотеки не являются потокобезопасными
+
+
+
+// Основные макроопределния в стиле TDD:
+- TEST_CASE
+- SECTION
+- REQUIRE
+- REQUIRE_FALSE
+- REQUIRE_NOTHROW
+- REQUIRE_THROWS
+- REQUIRE_THROWS_AS
+- REQUIRE_THROWS_WITH
+- REQUIRE_THROWS_MATCHES
+- CHECK
+- <...>
+
+
+
+// Основные макроопределния в стиле BDD:
+- TEST_CASE
+- GIVEN
+- WHEN
+- THEN
+- REQUIRE и CHECK
+
+
+
+// Теги в TEST_CASE
+- Теги заключаются в квадратные скобки, например, "[Benchmark]"
+- Существуют серии и последовательности тегов:
+    - Серия:                "[Benchmark][Time][MyClass]"
+    - Последовательность:   "[MyClass],[Benchmark]"
+- Теги можно передавать исполняемому файлу тестов, чтобы запускать только некоторые
+
+
+
+// Полезные аргументы для исполняемого файла тестов
+- Запускать конкретные тесты можно как по тегу, так и по имени теста
+- Запустить все тесты с тегом:   [tag]
+- Убрать все тесты с тегов:     ~[tag]
+- Скрытые тесты:                 [.], [.benchmark]
+
+-r <reporter>
+    - xml
+    - console
+    - JUnit
+- Можно комбинировать репортеры:
+    -r JUnit::out=result-junit.xml -r console::out=-::colour-mode=ansi
+-x <number_of_fails>
+-o <file>
+-n <name_of_run>
+-w
+-d <yes/no>     (duration)
+-c <section>
+-l   --list-tests
+-t   --list-tags
+--list-reporters
+--skip-benchmarks
+
+
+
+// Сравнение дробных чисел
+- Catch::Matchers::WithinAbs(number, 0.001)     // Максимальное отклонение в 0,1%
+- Catch::Matchers::WithinRel(number, 0.00001)   // Максимальное отклонение в 0,00001
+
+
+
+// Бенчмарки
+- BENCHMARK
+- BENCHMARK_ADVANCED

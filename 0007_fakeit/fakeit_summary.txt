@@ -1,0 +1,34 @@
+// Интеграция с CMake
+if(UNIX AND NOT APPLE)
+    set(FAKEIT_INCLUDE_DIRECTORY "/usr/local/include/catch")
+endif()
+include_directories(${FAKEIT_INCLUDE_DIRECTORY})
+
+
+
+// Основные классы
+- Mock
+
+
+
+// Основные методы
+- When
+- Fake
+- Method
+- OverloadedMethod
+- Return
+- AlwaysReturn
+- ReturnAndSet
+- AlwaysReturnAndSet
+- Using   | Уточнение аргументов
+- x_Times
+- Throw
+- AlwaysThrow
+- Do
+- AlwaysDo
+- Dtor
+- Gt, Ge, Lt, Le, Eq, Ne, ApproxEq
+- Verify
+- AtLeast
+- Exactly
+
