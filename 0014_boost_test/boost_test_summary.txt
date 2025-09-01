@@ -1,0 +1,113 @@
+////////////////
+// Boost.Test //
+////////////////
+
+
+
+// --------------------------------------------------------------------------------------------------------------
+// --- Интеграция с CMake ---
+
+set(VERSION_BOOST "1.81")
+set(NAME_OF_TESTS ...)
+...
+find_package(Boost ${VERSION_BOOST} REQUIRED COMPONENTS unit_test_framework)
+...
+set(INCLUDE_DIRS
+    ...
+)
+set(TEST_SOURCES
+    ...
+)
+add_executable(${NAME_OF_TESTS} ${TEST_SOURCES})
+target_link_libraries(${NAME_OF_TESTS} PRIVATE
+    Boost::unit_test_framework
+)
+
+
+
+// --------------------------------------------------------------------------------------------------------------
+// --- Термины библиотеки ---
+
+- Test assertion
+- Test case
+- Test suite
+- Test tree (tree of test suites and test cases)
+- Test module
+    - Test setup
+    - Test body
+    - Test cleanup
+    - Test runner
+
+
+
+// --------------------------------------------------------------------------------------------------------------
+// --- Основные заголовочные файлы ---
+
+- #include <boost/test/unit_test.hpp>
+- #include <boost/test/tools/floating_point_comparison.hpp>
+- #include <boost/mpl/list.hpp>
+- #include <boost/test/data/test_case.hpp>
+
+
+
+// --------------------------------------------------------------------------------------------------------------
+// --- Основные макросы ---
+
+- BOOST_AUTO_TEST_CASE
+- BOOST_AUTO_TEST_SUITE
+- BOOST_AUTO_TEST_SUITE_END
+- BOOST_TEST_MESSAGE
+
+// Погрешность для сравнения дробных чисел
+- #include <boost/test/tools/floating_point_comparison.hpp>
+- boost::test_tools::tolerance( 0.00001 )
+- boost::test_tools::tolerance( boost::test_tools::fpc::percent_tolerance(2.0) )
+
+// Шаблонные тесты
+- #include <boost/mpl/list.hpp>
+- typedef boost::mpl::list<int, float, double> TestTypes;
+- BOOST_AUTO_TEST_CASE_TEMPLATE
+
+// Data-driven tests
+- #include <boost/test/data/test_case.hpp>
+- boost::unit_test::data::make
+- Глобавльно определить данные для теста (лучше в виде константного контейнера, например)
+- BOOST_DATA_TEST_CASE
+
+// Фикстуры
+- Используются для подготовки данных к тестам и выноса общего кода
+- Пример:
+struct MyFixture {
+    std::vector<int> v;
+    MyFixture()  : v{1, 2, 3} {} // Setup
+    ~MyFixture() {}              // Teardown
+};
+- BOOST_FIXTURE_TEST_CASE(FixtureTest, MyFixture)
+
+
+// Основные утверждения, влияют на Errors counter и Test execution
+- BOOST_TEST_REQUIRE,                   BOOST_REQUIRE_THROW,        BOOST_REQUIRE_EXCEPTION
+- BOOST_TEST_CHECK или BOOST_TEST,      BOOST_CHECK_THROW,          BOOST_CHECK_EXCEPTION
+- BOOST_TEST_WARN,                      BOOST_WARN_THROW,           BOOST_WARN_EXCEPTION
+- Вторым аргументом в данных утверждениях может быть параметризованное сообщение, например: BOOST_TEST_REQUIRE(a == b, "Ошибка: a=" << a << " b=" << b);
+
+
+
+// --------------------------------------------------------------------------------------------------------------
+// --- Полезные параметры для CLI-тестов
+
+./test --help
+--list_content                  # Список всех тестов
+--run_test=MathSuite/*          # Запуск конкретного набора (suite)
+--skip_test=test1,...           # Пропуск указанных тестов
+--log_level=error               # Уровень детализации (all, success, test_suite, message, warning, error, fatal, nothing)
+--show_progress=<yes/no>        # Показывать прогресс выполнения тестов
+--output_format=<format>        # Формат вывода (HRF — человекочитаемый, XML, JUNIT)
+--color_output=<yes/no>         # Включить/отключить цветной вывод (если поддерживается)
+--detect_memory_leaks=<0/1/2>   # Детектировать утечки памяти (0 — выкл., 1 — осн. проверки, 2 — строгий режим)
+--catch_system_errors=<yes/no>  # Ловить системные ошибки (например, SIGSEGV)
+--log_sink=<filename.txt|.xml>  # Перенаправить логи в файл
+--random=123                    # Запуск тестов в случайном порядке
+
+--save_config=<filename.cfg>    # Сохранить текущие параметры CLI в файл
+--load_config=<filename.cfg>    # Загрузить параметры из файла
